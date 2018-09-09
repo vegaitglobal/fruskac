@@ -12,15 +12,15 @@ Initial version of the app wasn't working (failed to build). So we did the follo
 - Upgraded to Babel 7.0.0
 - Resolve conflicts with unsupported packages
 
-> error might happen with `react-native-auto-height-image`, file:`autoHeightImageWithErrorFallback.js`, on line `24:19` once you npm install
+> error might happen with `react-native-auto-height-image`, file:`autoHeightImageWithErrorFallback.js`, on line `24:19` once you `npm install`
 
 ## Starting guide
 
-`npm install`
-`npm audit fix` - fixes problems with old packages
-`cd ios && pod install` - installs native packages for iOS (didn't test on Android)
-`react-native link` - links native packages with react-native
-`react-native run-ios` (be sure to have Metro bundler ready before starting the application, do so with `npm start` or `yarn start`)
+- `npm install`
+- `npm audit fix` - fixes problems with old packages
+- `cd ios && pod install` - installs native packages for iOS (didn't test on Android)
+- `react-native link` - links native packages with react-native
+- `react-native run-ios` (be sure to have Metro bundler ready before starting the application, do so with `npm start` or `yarn start`)
 
 ## Mapbox errors onLoad
 
