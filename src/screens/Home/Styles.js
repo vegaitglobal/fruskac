@@ -9,13 +9,18 @@ export default StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+    backgroundColor: '#fff',
+  },
+  banner: {
+    borderColor: "#ddd",
+    borderBottomWidth: 1,
   },
   listitem: {
     paddingVertical: 20,
-    paddingHorizontal: 15,
+    paddingHorizontal: 25,
     fontSize: 18,
     backgroundColor: "#fff",
-    borderBottomWidth:1,
-    borderBottomColor: "#888"
+    borderColor: "#ddd",
+    borderBottomWidth: 1,
   }
 });

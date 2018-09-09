@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Button, Image, FlatList, TouchableOpacity, Picker } from 'react-native';
 import AutoHeightImage from 'react-native-auto-height-image';
 import { width } from '../../utils/screen'
 import Styles from './Styles';
@@ -12,13 +12,18 @@ export default class Home extends React.Component {
       menuItems: [
         {
           screen: "ListWithImage",
-          segment: "news",
-          key: "Novosti"
+          segment: "goodtoknow",
+          key: "Dobro je znati"
         },
         {
-          screen: "ListWithImage",
-          segment: "monasteries",
-          key: "Manastiri"
+          screen: "ListWithImageInline",
+          segment: "goodtoknow",
+          key: "Dobro je znati (inline)"
+        },
+        {
+          screen: "Locations",
+          segment: "locations",
+          key: "Lokacije"
         },
         {
           screen: "Tracks",
@@ -35,6 +40,7 @@ export default class Home extends React.Component {
           segment: "agenda",
           key: "Karta planine"
         }
+
       ]
     }
   }
@@ -43,19 +49,28 @@ export default class Home extends React.Component {
     return {
       title: "Fruškać",
       headerStyle: {
-        backgroundColor: '#2e7d32',
+        backgroundColor: '#fff',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#000',
+      headerRight: <TouchableOpacity onPress={() => ''}>
+                      <AutoHeightImage
+                          width={30}
+                          style={{marginRight: 15, borderColor: "#ddd", borderWidth: 1, borderRadius: 4}}
+                          source={require('../../assets/images/flag-uk.png')}
+                      />
+                    </TouchableOpacity>
     };
   };
 
   render() {
     return (
       <View style={Styles.greeter}>
-        <AutoHeightImage
-            width={width}
-            source={require('../../assets/images/greeter.png')}
-        />
+        <View style={Styles.banner}>
+          <AutoHeightImage
+              width={width}
+              source={require('../../assets/images/greeter.png')}
+          />
+        </View>
         <FlatList
           data={this.state.menuItems}
           renderItem={
@@ -65,6 +80,7 @@ export default class Home extends React.Component {
             </TouchableOpacity>
         }
         />
+
       </View>
     );
   }
