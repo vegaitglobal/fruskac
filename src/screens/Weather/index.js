@@ -9,7 +9,7 @@ export default class Weather extends React.Component {
   constructor() {
     super()
     this.state = {
-      weather: []
+      
     }
   }
 
@@ -17,52 +17,39 @@ export default class Weather extends React.Component {
     return {
       title: "Vremenska prognoza",
       headerStyle: {
-        backgroundColor: '#283593',
+        backgroundColor: '#a2d7dd',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#2D5154',
     };
   };
 
-  componentDidMount() {
-    var parseString = require('react-native-xml2js').parseString;
-    
-    fetch('https://www.yr.no/place/Serbia/Other/Fru%C5%A1ka_Gora/forecast.xml')
-        .then(response => response.text())
-        .then((response) => {
-          var w = []
-            parseString(response, function (err, result) {
-              result.weatherdata.forecast[0].tabular[0].time.forEach(element => {
-                f = {
-                  key: element.$.from,
-                  start: Date.parse(element.$.from),
-                  end: Date.parse(element.$.to),
-                  precipitation: element.precipitation[0]['$'].value,
-                  pressure: element.pressure[0]['$'].value,
-                  temperature: element.temperature[0]['$'].value,
-                  wind_direction: element.windDirection[0]['$'].deg,
-                  wind_speed: element.windSpeed[0]['$'].mps
-                }
-                w.push(f)
-              }); 
-            });
-            this.setState({weather: w});
-        }).catch((err) => {
-            console.log('fetch', err)
-        })
-
-  }
-
   render() {
     return (
-      <FlatList
-        data={this.state.weather}
-        renderItem={
-          ({item}) => 
-          <TouchableOpacity onPress={() => this.props.navigation.push(item.start)}>
-            <Text style={{}}>{item.temperature}</Text>
-          </TouchableOpacity>
-      }
-      />
+      <View style={Styles.body}>
+        <FlatList
+          style={Styles.list}
+          data={[
+            {key: "Danas", image: require("../../assets/images/sun.png"), summary: "Sunčano"},
+            {key: "Sutra", image: require("../../assets/images/rain.png"), summary: "Mestimična kiša"},
+            {key: "Prekosutra", image: require("../../assets/images/clouds.png"), summary: "Oblačno"},
+          ]}
+          renderItem={
+            ({item}) => 
+            <TouchableOpacity onPress={() => this.props.navigation.push('Article', {title: item.key})}>
+              <View style={Styles.card}>
+                {item.image &&
+                <AutoHeightImage
+                    width={100}
+                    style={Styles.cardImage}
+                    source={item.image}
+                />}
+                <Text style={Styles.cardTitle}>{item.key}</Text>
+                <Text style={Styles.cardSummary}>{item.summary}</Text>
+              </View>
+            </TouchableOpacity>
+        }
+        />
+      </View>
     );
   }
 }
