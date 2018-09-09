@@ -41,6 +41,13 @@ export default class Tracks extends React.Component {
         backgroundColor: '#2daa80',
       },
       headerTintColor: '#fff',
+      headerRight: <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                      <AutoHeightImage
+                          width={20}
+                          style={{marginRight: 20}}
+                          source={require('../../assets/images/home.png')}
+                      />
+                    </TouchableOpacity>
     };
   };
 

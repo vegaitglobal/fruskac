@@ -49,13 +49,13 @@ export default class Home extends React.Component {
     return {
       title: "Fruškać",
       headerStyle: {
-        backgroundColor: '#fff',
+        backgroundColor: '#2daa80',
       },
-      headerTintColor: '#000',
+      headerTintColor: '#fff',
       headerRight: <TouchableOpacity onPress={() => ''}>
                       <AutoHeightImage
                           width={30}
-                          style={{marginRight: 15, borderColor: "#ddd", borderWidth: 1, borderRadius: 4}}
+                          style={{marginRight: 15, borderColor: "#5AD4AC", borderWidth: 1, borderRadius: 4}}
                           source={require('../../assets/images/flag-uk.png')}
                       />
                     </TouchableOpacity>

@@ -9,6 +9,7 @@ import Locations from './src/screens/Locations';
 import Tracks from './src/screens/Tracks';
 import Map from './src/screens/Map';
 
+
 export default class App extends React.Component {
   render() {
     return <RootStack />;
@@ -25,6 +26,7 @@ const RootStack = createStackNavigator(
     Locations: Locations,
     Tracks: Tracks,
     Map: Map,
+
   },
   {
     initialRouteName: 'Home',

@@ -17,7 +17,7 @@ export default class ListWithImageInline extends React.Component {
     return {
       title: navigation.getParam('segment', "ListWithImage"),
       headerStyle: {
-        backgroundColor: '#9b9f2e',
+        backgroundColor: '#2daa80',
       },
       headerTintColor: '#fff',
     };

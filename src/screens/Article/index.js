@@ -17,9 +17,9 @@ export default class Article extends React.Component {
     return {
       title: navigation.getParam('title', "Article"),
       headerStyle: {
-        backgroundColor: '#9b9f2e',
+        backgroundColor: '#fff',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#222',
     };
   };
 

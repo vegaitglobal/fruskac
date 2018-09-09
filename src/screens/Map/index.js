@@ -1,11 +1,8 @@
 import React from 'react';
-import { View, Text, Button, Image, FlatList, TouchableOpacity, Picker } from 'react-native';
+import { View, Text, Button, Image, FlatList, TouchableOpacity, ScrollView, WebView } from 'react-native';
 import AutoHeightImage from 'react-native-auto-height-image';
-import { width } from '../../utils/screen'
+import { width, height } from '../../utils/screen'
 import Styles from './Styles';
-import Mapbox from '@mapbox/react-native-mapbox-gl';
-
-// Mapbox.setAccessToken('<your access token here>');
 
 export default class Map extends React.Component {
 
@@ -18,22 +15,21 @@ export default class Map extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      title: "Karta planine",
+      title: 'karta planine',
       headerStyle: {
         backgroundColor: '#fff',
       },
-      headerTintColor: '#000',
-      headerRight: <Text>TEXT</Text>
+      headerTintColor: '#222',
     };
   };
 
   render() {
     return (
       <View style={{flex: 1}}>
-        <Mapbox.MapView
-            zoomLevel={15}
-            centerCoordinate={[11.256, 43.770]}>
-        </Mapbox.MapView>
+        <WebView
+          source={{uri: 'https://www.google.com/maps/@45.1443847,19.5829608,11.25z'}}
+          style={{}}
+        />
       </View>
     );
   }

@@ -2,25 +2,33 @@ import { StyleSheet, Platform } from "react-native";
 import * as Screen from "../../utils/screen";
 
 export default StyleSheet.create({
-  greeter: {
-    flex: 1,
-    position: "absolute",
+  cover: {
+    position: 'absolute',
     top: 0,
     left: 0,
-    bottom: 0,
-    right: 0,
-    backgroundColor: '#fff',
   },
-  banner: {
-    borderColor: "#ddd",
-    borderBottomWidth: 1,
+  article: {
+    width: Screen.width,
   },
-  listitem: {
-    paddingVertical: 20,
-    paddingHorizontal: 25,
-    fontSize: 18,
+  articleBody:{
+    borderColor: "#ccc",
+    borderTopWidth: 1,
+    flex: 1,
     backgroundColor: "#fff",
-    borderColor: "#ddd",
-    borderBottomWidth: 1,
+    marginTop: Screen.width - 5,
+    padding: 20,
+  },
+  articleTitle: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    textAlign: 'left'
+  },
+  articleText: {
+    marginTop: 10,
+    width: Screen.width - 40,
+    fontWeight: 'normal',
+    fontSize: 17,
+    lineHeight: 24,
+    textAlign: 'justify'
   }
 });
